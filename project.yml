@@ -42,6 +42,10 @@ targets:
     platform: iOS
     sources:
       - TwoUpAppTests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: au.example.twoup.tests
     dependencies:
       - target: TwoUp
       - package: TwoUpCore
