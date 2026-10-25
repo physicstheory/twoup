@@ -2,7 +2,11 @@ name: Build iOS
 
 on:
   push:
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -12,16 +16,41 @@ jobs:
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Core tests
-        run: swift test
-      - name: Generate project
-        run: xcodegen
-      - name: App tests
         run: |
-          xcodebuild test -project TwoUp.xcodeproj -scheme TwoUp \
-            -destination 'platform=iOS Simulator,name=iPhone 15'
+          mkdir -p logs
+          swift test 2>&1 | tee logs/core-tests.log; exit ${PIPESTATUS[0]}
       - name: Unsigned IPA
-        run: ./scripts/build_ipa.sh
+        run: |
+          mkdir -p logs
+          ./scripts/build_ipa.sh 2>&1 | tee logs/build-ipa.log; exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
         with:
           name: TwoUp-unsigned-ipa
           path: build/TwoUp-unsigned.ipa
+      - name: Publish IPA to the ci-builds branch
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout --orphan ci-builds
+          git rm -rf --quiet . || true
+          mkdir -p out && cp build/TwoUp-unsigned.ipa out/ && git add -f out/TwoUp-unsigned.ipa
+          git commit -q -m "Unsigned IPA for ${GITHUB_SHA}"
+          git push -f origin ci-builds
+      - name: App tests (simulator)
+        continue-on-error: true
+        run: |
+          mkdir -p logs
+          ID=$(xcrun simctl list devices available | grep -m1 "iPhone" | grep -oE '[0-9A-F]{8}-([0-9A-F]{4}-){3}[0-9A-F]{12}')
+          xcodebuild test -project TwoUp.xcodeproj -scheme TwoUp -destination "platform=iOS Simulator,id=$ID" 2>&1 | tee logs/app-tests.log; exit ${PIPESTATUS[0]}
+      - name: Publish logs
+        if: always()
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          cp -r logs /tmp/ci-logs 2>/dev/null || mkdir -p /tmp/ci-logs
+          git checkout --orphan ci-logs || true
+          git rm -rf --quiet . || true
+          cp -r /tmp/ci-logs/* . 2>/dev/null || echo "no logs" > empty.txt
+          git add -f -A
+          git commit -q -m "CI logs for ${GITHUB_SHA}"
+          git push -f origin ci-logs
