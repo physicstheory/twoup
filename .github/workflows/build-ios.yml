@@ -28,14 +28,11 @@ jobs:
           name: TwoUp-unsigned-ipa
           path: build/TwoUp-unsigned.ipa
       - name: Publish IPA to the ci-builds branch
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@users.noreply.github.com"
-          git checkout --orphan ci-builds
-          git rm -rf --quiet . || true
-          mkdir -p out && cp build/TwoUp-unsigned.ipa out/ && git add -f out/TwoUp-unsigned.ipa
-          git commit -q -m "Unsigned IPA for ${GITHUB_SHA}"
-          git push -f origin ci-builds
+          mkdir -p /tmp/out && cp build/TwoUp-unsigned.ipa /tmp/out/
+          ./scripts/publish_branch.sh ci-builds /tmp/out
       - name: App tests (simulator)
         continue-on-error: true
         run: |
@@ -44,13 +41,8 @@ jobs:
           xcodebuild test -project TwoUp.xcodeproj -scheme TwoUp -destination "platform=iOS Simulator,id=$ID" 2>&1 | tee logs/app-tests.log; exit ${PIPESTATUS[0]}
       - name: Publish logs
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@users.noreply.github.com"
-          cp -r logs /tmp/ci-logs 2>/dev/null || mkdir -p /tmp/ci-logs
-          git checkout --orphan ci-logs || true
-          git rm -rf --quiet . || true
-          cp -r /tmp/ci-logs/* . 2>/dev/null || echo "no logs" > empty.txt
-          git add -f -A
-          git commit -q -m "CI logs for ${GITHUB_SHA}"
-          git push -f origin ci-logs
+          mkdir -p logs
+          ./scripts/publish_branch.sh ci-logs logs
