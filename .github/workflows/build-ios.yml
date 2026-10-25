@@ -1,0 +1,27 @@
+name: Build iOS
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Core tests
+        run: swift test
+      - name: Generate project
+        run: xcodegen
+      - name: App tests
+        run: |
+          xcodebuild test -project TwoUp.xcodeproj -scheme TwoUp \
+            -destination 'platform=iOS Simulator,name=iPhone 15'
+      - name: Unsigned IPA
+        run: ./scripts/build_ipa.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TwoUp-unsigned-ipa
+          path: build/TwoUp-unsigned.ipa
