@@ -1,0 +1,139 @@
+Building for debugging...
+[0/7] /Users/runner/work/twoup/twoup/.build/arm64-apple-macosx/debug/TwoUpCorePackageTests.derived/runner.swift
+[0/7] Write sources
+[4/7] Write swift-version--79AA4F9932D1E87A.txt
+[6/12] Compiling TwoUpCore Betting.swift
+[7/12] Compiling TwoUpCore CommemorationDayClock.swift
+[8/12] Emitting module TwoUpCore
+[9/12] Compiling TwoUpCore GameSession.swift
+[10/12] Compiling TwoUpCore LocalSimulatedSession.swift
+[11/14] Compiling TwoUpCore Models.swift
+[12/14] Compiling TwoUpCore TwoUpEngine.swift
+[13/17] Compiling TwoUpCoreTests CommemorationDayClockTests.swift
+[14/17] Emitting module TwoUpCoreTests
+[15/17] Compiling TwoUpCoreTests LocalSimulatedSessionTests.swift
+[16/18] Compiling TwoUpCoreTests TwoUpEngineTests.swift
+[17/20] Emitting module TwoUpCorePackageTests
+[18/20] Compiling TwoUpCorePackageTests runner.swift
+[18/20] Write Objects.LinkFileList
+[19/20] Linking TwoUpCorePackageTests
+Build complete! (13.73s)
+Test Suite 'All tests' started at 2026-10-25 06:14:00.059.
+Test Suite 'TwoUpCorePackageTests.xctest' started at 2026-10-25 06:14:00.060.
+Test Suite 'CommemorationDayClockTests' started at 2026-10-25 06:14:00.060.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testCommemorationDayIsLocalNotUTC]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testCommemorationDayIsLocalNotUTC]' passed (0.004 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testCountdownAcrossDaylightSavingEnd]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testCountdownAcrossDaylightSavingEnd]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testCountdownAcrossNewYear]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testCountdownAcrossNewYear]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testDayAfterCommemorationDayCountsToNextYear]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testDayAfterCommemorationDayCountsToNextYear]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testDebugDateOverridesAndKeepsTicking]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testDebugDateOverridesAndKeepsTicking]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testEndOfCommemorationDay]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testEndOfCommemorationDay]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testFullYearSpanningLeapDay]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testFullYearSpanningLeapDay]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testLeapDayIsCountedWhenItLiesAhead]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testLeapDayIsCountedWhenItLiesAhead]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testLeapDayIsNotCountedWhenItIsBehind]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testLeapDayIsNotCountedWhenItIsBehind]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testNewYearsDayNonLeapAndLeap]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testNewYearsDayNonLeapAndLeap]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testNextCommemorationDayIsStrictlyAfter]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testNextCommemorationDayIsStrictlyAfter]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testOneSecondBeforeCommemorationDay]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testOneSecondBeforeCommemorationDay]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testOtherDatesAreNotCommemorationDay]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testOtherDatesAreNotCommemorationDay]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testSameInstantDifferentTimeZones]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testSameInstantDifferentTimeZones]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testStartOfCommemorationDay]' started.
+Test Case '-[TwoUpCoreTests.CommemorationDayClockTests testStartOfCommemorationDay]' passed (0.000 seconds).
+Test Suite 'CommemorationDayClockTests' passed at 2026-10-25 06:14:00.066.
+	 Executed 15 tests, with 0 failures (0 unexpected) in 0.005 (0.006) seconds
+Test Suite 'LocalSimulatedSessionTests' started at 2026-10-25 06:14:00.066.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testEventsArriveInOrder]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testEventsArriveInOrder]' passed (0.002 seconds).
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testLocalPlayerCanFadeASimulatedSpinner]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testLocalPlayerCanFadeASimulatedSpinner]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testOddsKeepsTheMainBetOnTheTable]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testOddsKeepsTheMainBetOnTheTable]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testResetBalanceIsFree]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testResetBalanceIsFree]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testRulesAreEnforced]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testRulesAreEnforced]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testSideBetsSettleAndCanBeRemoved]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testSideBetsSettleAndCanBeRemoved]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testSpinnerLossPaysTheRingAndPassesTheSpin]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testSpinnerLossPaysTheRingAndPassesTheSpin]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testSpinnerWinCollectsFromTheRingAndKeepsSpinning]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testSpinnerWinCollectsFromTheRingAndKeepsSpinning]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testStartsWithLocalSpinnerAndStartingBalances]' started.
+Test Case '-[TwoUpCoreTests.LocalSimulatedSessionTests testStartsWithLocalSpinnerAndStartingBalances]' passed (0.000 seconds).
+Test Suite 'LocalSimulatedSessionTests' passed at 2026-10-25 06:14:00.071.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'TwoUpEngineTests' started at 2026-10-25 06:14:00.071.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testCoinsAreRoughlyFair]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testCoinsAreRoughlyFair]' passed (0.017 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testFiveOddsInARowLosesAndPassesSpin]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testFiveOddsInARowLosesAndPassesSpin]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testFiveOddsLosesMainBetAndWinsOddsSideBets]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testFiveOddsLosesMainBetAndWinsOddsSideBets]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testFourOddsThenHeadsResetsStreak]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testFourOddsThenHeadsResetsStreak]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testHistoryRecordsThrowerAndCapsAtTwenty]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testHistoryRecordsThrowerAndCapsAtTwenty]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testOddsLeavesMainBetUnsettled]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testOddsLeavesMainBetUnsettled]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testOddsMeansReTossAndSpinStays]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testOddsMeansReTossAndSpinStays]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testOddsStreakResetsOnTails]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testOddsStreakResetsOnTails]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testOverfadingIsCappedInOrderPlaced]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testOverfadingIsCappedInOrderPlaced]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testPayoutRatios]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testPayoutRatios]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testPlayerWithMainAndSideBetsIsAggregated]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testPlayerWithMainAndSideBetsIsAggregated]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testRotationSkipsIneligiblePlayers]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testRotationSkipsIneligiblePlayers]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testRotationStaysWhenNobodyElseIsEligible]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testRotationStaysWhenNobodyElseIsEligible]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testRotationWrapsAround]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testRotationWrapsAround]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSameSeedGivesSameSequence]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSameSeedGivesSameSequence]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSettlementsAreZeroSum]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSettlementsAreZeroSum]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSideBetsSettleOnEveryToss]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSideBetsSettleOnEveryToss]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSinglePlayerRotationStaysPut]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSinglePlayerRotationStaysPut]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSpinnerCannotFadeThemselves]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSpinnerCannotFadeThemselves]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSpinnerLosesPaysFaders]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSpinnerLosesPaysFaders]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSpinnerWinsCollectsFromFaders]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testSpinnerWinsCollectsFromFaders]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testTossOutcomeClassification]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testTossOutcomeClassification]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testTwoHeadsSpinnerWinsAndKeepsSpinning]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testTwoHeadsSpinnerWinsAndKeepsSpinning]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testTwoTailsSpinnerLosesAndSpinPasses]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testTwoTailsSpinnerLosesAndSpinPasses]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testUncoveredStakeIsReturned]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testUncoveredStakeIsReturned]' passed (0.000 seconds).
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testWinDoesNotRotate]' started.
+Test Case '-[TwoUpCoreTests.TwoUpEngineTests testWinDoesNotRotate]' passed (0.000 seconds).
+Test Suite 'TwoUpEngineTests' passed at 2026-10-25 06:14:00.091.
+	 Executed 26 tests, with 0 failures (0 unexpected) in 0.020 (0.021) seconds
+Test Suite 'TwoUpCorePackageTests.xctest' passed at 2026-10-25 06:14:00.091.
+	 Executed 50 tests, with 0 failures (0 unexpected) in 0.030 (0.031) seconds
+Test Suite 'All tests' passed at 2026-10-25 06:14:00.092.
+	 Executed 50 tests, with 0 failures (0 unexpected) in 0.030 (0.033) seconds
+◇ Test run started.
+↳ Testing Library Version: 124.4
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests passed after 0.001 seconds.
