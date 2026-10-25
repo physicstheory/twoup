@@ -90,16 +90,15 @@ final class CoinSceneController: ObservableObject, TossAnimating {
 
             let turns = Float(5 + i)
             let totalFlip = turns * 2 * .pi + (tails ? .pi : 0)
-            let control = SCNVector3(2 * peak.x - (origin.x + landing.x) / 2,
-                                     2 * peak.y - (origin.y + landing.y) / 2,
-                                     2 * peak.z - (origin.z + landing.z) / 2)
+            let control = SCNVector3(Self.controlPoint(peak.x, origin.x, landing.x),
+                                     Self.controlPoint(peak.y, origin.y, landing.y),
+                                     Self.controlPoint(peak.z, origin.z, landing.z))
             coin.opacity = 1
             let flight = SCNAction.customAction(duration: duration) { node, elapsed in
                 let t = Float(elapsed / CGFloat(duration))
-                let u = 1 - t
-                node.position = SCNVector3(u * u * origin.x + 2 * u * t * control.x + t * t * landing.x,
-                                           u * u * origin.y + 2 * u * t * control.y + t * t * landing.y,
-                                           u * u * origin.z + 2 * u * t * control.z + t * t * landing.z)
+                node.position = SCNVector3(Self.bezier(t, origin.x, control.x, landing.x),
+                                           Self.bezier(t, origin.y, control.y, landing.y),
+                                           Self.bezier(t, origin.z, control.z, landing.z))
                 node.simdOrientation = Self.orientation(yaw: yaw, flip: totalFlip * t)
             }
             let settle = SCNAction.sequence([
@@ -139,6 +138,20 @@ final class CoinSceneController: ObservableObject, TossAnimating {
     }
 
     // MARK: Build
+
+    /// Quadratic Bézier control value so the curve's midpoint is exactly `peak`.
+    nonisolated private static func controlPoint(_ peak: Float, _ start: Float, _ end: Float) -> Float {
+        let mid: Float = (start + end) / 2
+        return 2 * peak - mid
+    }
+
+    nonisolated private static func bezier(_ t: Float, _ a: Float, _ c: Float, _ b: Float) -> Float {
+        let u: Float = 1 - t
+        let first: Float = u * u * a
+        let second: Float = 2 * u * t * c
+        let third: Float = t * t * b
+        return first + second + third
+    }
 
     nonisolated private static func orientation(yaw: Float, flip: Float) -> simd_quatf {
         simd_quatf(angle: yaw, axis: SIMD3(0, 1, 0)) * simd_quatf(angle: flip, axis: SIMD3(1, 0, 0))

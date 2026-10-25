@@ -8,7 +8,8 @@ final class AppEnvironment: ObservableObject {
     let haptics: HapticsService
     let sound: SoundService
 
-    init(settings: SettingsStore = SettingsStore()) {
+    init(settings: SettingsStore? = nil) {
+        let settings = settings ?? SettingsStore()
         self.settings = settings
         self.haptics = HapticsService(isEnabled: { settings.hapticsOn })
         self.sound = SoundService(isEnabled: { settings.soundOn })
